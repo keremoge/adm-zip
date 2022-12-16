@@ -201,6 +201,7 @@ module.exports = function (/*Buffer|null*/ inBuffer, /** object */ options) {
                 });
             }
             entryList.splice(entryList.indexOf(entry), 1);
+            entryList = entryList.filter(e => e.entryName !== entry.entryName && e => e.name !== entry.entryName);
             delete entryTable[entryName];
             mainHeader.totalEntries = entryList.length;
         },
